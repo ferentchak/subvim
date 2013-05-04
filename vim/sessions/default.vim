@@ -1,5 +1,5 @@
-" ~/Code/vim-awesome/vim/sessions/default.vim: Vim session script.
-" Created by session.vim 1.5 on 02 April 2013 at 01:55:27.
+" ~/dev/subvim/vim/sessions/default.vim: Vim session script.
+" Created by session.vim 1.5 on 04 May 2013 at 10:06:21.
 " Open this file in Vim and run :source % to restore your session.
 
 set guioptions=eg
@@ -25,8 +25,26 @@ endif
 set shortmess=aoO
 silent! argdel *
 set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
 wincmd t
 set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 31 + 102) / 204)
+exe 'vert 2resize ' . ((&columns * 172 + 102) / 204)
+argglobal
+enew
+" file NERD_tree_1
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
 argglobal
 enew
 setlocal fdm=manual
@@ -37,6 +55,9 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
+wincmd w
+exe 'vert 1resize ' . ((&columns * 31 + 102) / 204)
+exe 'vert 2resize ' . ((&columns * 172 + 102) / 204)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
@@ -50,6 +71,12 @@ endif
 let &so = s:so_save | let &siso = s:siso_save
 doautoall SessionLoadPost
 unlet SessionLoad
+tabnext 1
+1wincmd w
+let s:bufnr = bufnr("%")
+NERDTree ~/
+execute "bwipeout" s:bufnr
+1resize 52|vert 1resize 31|2resize 52|vert 2resize 172|
 tabnext 1
 1wincmd w
 

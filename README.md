@@ -1,3 +1,16 @@
+city41/subvim --
+
+This is my personal little fork of subvim. I made the fork so I can keep up with updates
+on subvim, but also inject my personal preferences.
+
+### Ummm, you're doing it wrong
+Yeah I should add my stuff to custom/ I know. I like forking better, as I can set up subvim the way I want and
+pull this down onto all of my machines, keeping them all in sync.
+
+
+original README follows:
+
+
 ```
      _______. __    __  .______   ____    ____  __  .___  ___. 
     /       ||  |  |  | |   _  \  \   \  /   / |  | |   \/   | 
