@@ -1,5 +1,8 @@
 if !has("gui_macvim")
+ " disabling youcompleteme, nerdtree and vim session in terminal
  let g:loaded_youcompleteme = 1
+ let loaded_nerd_tree = 1
+ let g:loaded_session = 1
 endif
 
 " .vimrc
@@ -27,7 +30,10 @@ let mapleader = ","
 set cul				" highlight current line
 set autoindent			" next line takes on previous line's indentation
 nnoremap <esc> :noh<return><esc> " clear search highlight on ESC
-autocmd VimEnter * NERDTree	" launches with NERDTree open and set to the cwd
+
+if has("gui_macvim")
+  autocmd VimEnter * NERDTree	" launches with NERDTree open and set to the cwd
+endif
 
 set noerrorbells                " No beeps
 set number                      " Show line numbers
