@@ -58,7 +58,7 @@ set hlsearch                    " Highlight found searches
 set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
 
-set switchbuf=usetab,newtab     " open new buffers always in new tabs
+" set switchbuf=usetab,newtab     " open new buffers always in new tabs
 
 " ----------------------------------------------"
 " MacVim modifications (color, shortcuts, etc.. "
@@ -209,4 +209,8 @@ let g:multi_cursor_quit_key = '<Esc>'
 
 "" CoffeeScript tab hack
 au FileType coffee set shiftwidth=2 tabstop=2 expandtab
+"" JavaScript tab hack
+au FileType javascript set shiftwidth=3 tabstop=3
+
+
 
