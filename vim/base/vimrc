@@ -79,8 +79,6 @@ if has("gui_macvim")
     set guioptions-=T  "no toolbar
     set guioptions-=l
     set guioptions-=L
-    set guioptions-=r  "no scrollbar
-    set guioptions-=R
 
     " Open ctrlp with cmd+p
     let g:ctrlp_map = '<D-p>'
