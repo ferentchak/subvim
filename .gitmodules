@@ -7,3 +7,6 @@
 [submodule "vim/base/vim-indent-guides"]
 	path = vim/base/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vim/base/stylus_vim"]
+	path = vim/base/stylus_vim
+	url = https://github.com/wavded/vim-stylus.git

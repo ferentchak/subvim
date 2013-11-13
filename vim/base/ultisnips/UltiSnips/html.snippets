@@ -15,7 +15,6 @@ endglobal
 ############
 snippet doctype "HTML - 5.0 (doctype)" b
 <!DOCTYPE html>
-
 endsnippet
 
 #############
@@ -104,7 +103,7 @@ snippet input "Input with Label"
 
 endsnippet
 
-snippet input "XHTML   <input>"
+snippet input "HTML   <input>"
 <input type="${1:text/submit/hidden/button}" name="${2:some_name}" value="$3"${4: id="${5:$2}"}`!p x(snip)`>
 endsnippet
 
@@ -122,19 +121,19 @@ snippet select "Select Box"
 endsnippet
 
 
-snippet textarea "XHTML   <textarea>"
+snippet textarea "HTML   <textarea>"
 <textarea name="${1:Name}" rows="${2:8}" cols="${3:40}">$0</textarea>
 endsnippet
 
-snippet mailto "XHTML <a mailto: >"
+snippet mailto "HTML <a mailto: >"
 <a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${3:email me}</a>
 endsnippet
 
-snippet base "XHTML <base>"
+snippet base "HTML <base>"
 <base href="$1"${2: target="$3"}`!p x(snip)`>
 endsnippet
 
-snippet body "XHTML <body>"
+snippet body "HTML <body>"
 <body id="${1:`!p
 snip.rv = snip.fn and 'Hallo' or 'Nothin'
 `}"${2: onload="$3"}>
@@ -142,13 +141,17 @@ snip.rv = snip.fn and 'Hallo' or 'Nothin'
 </body>
 endsnippet
 
-snippet div "XHTML <div>"
+snippet canvas "HTML <canvas>"
+<canvas id="$1" width="$2" height="$3" />
+endsnippet
+
+snippet div "HTML <div>"
 <div`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""`>
    $0
 </div>
 endsnippet
 
-snippet form "XHTML <form>"
+snippet form "HTML <form>"
 <form action="${1:`!p
 snip.rv = (snip.basename or 'unnamed') + '_submit'
 `}" method="${2:get}" accept-charset="utf-8">
@@ -158,47 +161,47 @@ snip.rv = (snip.basename or 'unnamed') + '_submit'
 </form>
 endsnippet
 
-snippet h1 "XHTML <h1>"
+snippet h1 "HTML <h1>"
 <h1 id="${1/[\w\d]+|( )/(?1:_:\L$0\E)/g}">${1}</h1>
 endsnippet
 
-snippet head "XHTML <head>"
+snippet head "HTML <head>"
 <head>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8"`!p x(snip)`>
+	<meta charset='utf-8' />
 	<title>${1:`!p snip.rv = snip.basename or "Page Title"`}</title>
 	$0
 </head>
 endsnippet
 
-snippet link "XHTML <link>"
-<link rel="${1:stylesheet}" href="${2:/css/master.css}" type="text/css" media="${3:screen}" title="${4:no title}" charset="${5:utf-8}"`!p x(snip)`>
+snippet link "HTML <link>"
+<link rel="${1:stylesheet}" href="${2:/css/master.css}" media="${3:screen}" title}">
 endsnippet
 
 snippet utf8 "HTMl5 utf8 meta tag"
 <meta charset='utf-8' />
 endsnippet
 
-snippet meta "XHTML <meta>"
+snippet meta "HTML <meta>"
 <meta name="${1:name}" content="${2:content}"`!p x(snip)`>
 endsnippet
 
-snippet scriptsrc "XHTML <script src...>"
-<script src="$1" type="text/javascript" charset="${3:utf-8}"></script>
+snippet scriptsrc "HTML <script src...>"
+<script src="$1"></script>
 endsnippet
 
-snippet script "XHTML <script>"
-<script type="text/javascript" charset="utf-8">
+snippet script "HTML <script>"
+<script>
 	$0
 </script>
 endsnippet
 
-snippet style "XHTML <style>"
-<style type="text/css" media="screen">
+snippet style "HTML <style>"
+<style>
 	$0
 </style>
 endsnippet
 
-snippet table "XHTML <table>"
+snippet table "HTML <table>"
 <table border="${1:0}"${2: cellspacing="${3:5}" cellpadding="${4:5}"}>
 	<tr><th>${5:Header}</th></tr>
 	<tr><td>${0:Data}</td></tr>
@@ -231,7 +234,7 @@ snippet tr "table row"
 <tr>$0</tr>
 endsnippet
 
-snippet title "XHTML <title>"
+snippet title "HTML <title>"
 <title>${1:`!p snip.rv = snip.basename or "Page Title"`}</title>
 endsnippet
 
@@ -243,21 +246,7 @@ snippet fieldset "Fieldset"
 </fieldset>
 endsnippet
 
-snippet movie "Embed QT movie (movie)" b
-<object width="$2" height="$3" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab">
-	<param name="src" value="$1"`!p x(snip)`>
-	<param name="controller" value="$4"`!p x(snip)`>
-	<param name="autoplay" value="$5"`!p x(snip)`>
-	<embed src="${1:movie.mov}"
-		width="${2:320}" height="${3:240}"
-		controller="${4:true}" autoplay="${5:true}"
-		scale="tofit" cache="true"
-		pluginspage="http://www.apple.com/quicktime/download/"
-	`!p x(snip)`>
-</object>
-endsnippet
-
-snippet html5 "HTML5 Template"
+snippet html "HTML5 Template"
 <!DOCTYPE html>
 <html>
 <head>
@@ -265,12 +254,6 @@ snippet html5 "HTML5 Template"
     <meta charset="utf-8" />
 </head>
 <body>
-    <header>
-        ${2}
-    </header>
-    <footer>
-        ${4}
-    </footer>
 </body>
 </html>
 endsnippet
