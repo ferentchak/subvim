@@ -10,3 +10,9 @@
 [submodule "vim/base/stylus_vim"]
 	path = vim/base/stylus_vim
 	url = https://github.com/wavded/vim-stylus.git
+[submodule "vim/base/vim-jade"]
+	path = vim/base/vim-jade
+	url = git://github.com/digitaltoad/vim-jade.git
+[submodule "vim/base/vim-markdown"]
+	path = vim/base/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
