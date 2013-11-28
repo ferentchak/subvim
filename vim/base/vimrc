@@ -217,5 +217,7 @@ if has("gui_macvim")
   let g:UltiSnipsExpandTrigger="<A-tab>"
   let g:UltiSnipsListSnippets="<A-s-tab>"
   let g:ycm_key_list_previous_completion=['<Up>']
+
+  autocmd VimEnter * IndentGuidesEnable
 endif
 
