@@ -211,7 +211,7 @@ if has("gui_macvim")
   au FileType stylus set shiftwidth=2 tabstop=2 expandtab
   au FileType coffee set shiftwidth=2 tabstop=2 expandtab
   au FileType javascript set shiftwidth=2 tabstop=2 expandtab
-  au FileType html set shiftwidth=4 tabstop=4 expandtab
+  au FileType html set shiftwidth=2 tabstop=2 expandtab
 
   "" UltiSnips and YouCompleteMe in harmony
   let g:UltiSnipsExpandTrigger="<A-tab>"
