@@ -238,5 +238,7 @@ if has("gui_macvim")
 
   "" launch Unite with ctrl-B -- lets you pick from your open buffers
   nnoremap <C-b> :Unite -no-split buffer -start-insert<cr>
+
+  map <leader>f :NERDTreeFind<cr>
 endif
 
