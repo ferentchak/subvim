@@ -3,6 +3,27 @@ city41/subvim --
 This is my personal little fork of subvim. I made the fork so I can keep up with updates
 on subvim, but also inject my personal preferences.
 
+### Getting Unite going
+
+1. `brew install ag`
+2. `git submodule init`
+3. `git submodule update`
+4. `cd vim/base/vimproc && make`  (assumes you are on OSX)
+
+Unite can be invoked with
+
+* `ctrl-P` -- standard fuzzy file search
+* `ctrl-B` -- searches your open buffers (very handy)
+
+in `vim/base/vimrc` towards the bottom, a custom set of directories is ignored by Unite
+
+* tmp/
+* node_modules/
+* etc...
+
+feel free to tweak to your needs
+
+
 ### Ummm, you're doing it wrong
 Yeah I should add my stuff to custom/ I know. I like forking better, as I can set up subvim the way I want and
 pull this down onto all of my machines, keeping them all in sync.

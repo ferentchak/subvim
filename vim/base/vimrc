@@ -1,11 +1,4 @@
 if has("gui_macvim")
-  if !has("gui_macvim")
-   " disabling youcompleteme, nerdtree and vim session in terminal
-   let g:loaded_youcompleteme = 1
-   let loaded_nerd_tree = 1
-   let g:loaded_session = 1
-  endif
-
   " .vimrc
   set nocompatible                "Turn off compability mode with Vi, we don't need that anymore
 
@@ -59,7 +52,7 @@ if has("gui_macvim")
   set ignorecase                  " Search case insensitive...
   set smartcase                   " ... but not when search pattern contains upper case characters
 
-  set switchbuf=usetab,newtab     " open new buffers always in new tabs
+  " set switchbuf=usetab,newtab     " open new buffers always in new tabs
 
   " ----------------------------------------------"
   " MacVim modifications (color, shortcuts, etc.. "
@@ -207,11 +200,13 @@ if has("gui_macvim")
   let g:multi_cursor_skip_key = '<D-k>' "until we got multiple keys support
   let g:multi_cursor_quit_key = '<Esc>'
 
-  "" CoffeeScript tab hack
+  "" simple hacked in tab settings
   au FileType stylus set shiftwidth=2 tabstop=2 expandtab
+  au FileType css set shiftwidth=2 tabstop=2 expandtab
   au FileType coffee set shiftwidth=2 tabstop=2 expandtab
   au FileType javascript set shiftwidth=2 tabstop=2 expandtab
   au FileType html set shiftwidth=2 tabstop=2 expandtab
+  au FileType jade set shiftwidth=2 tabstop=2 expandtab
 
   "" UltiSnips and YouCompleteMe in harmony
   let g:UltiSnipsExpandTrigger="<A-tab>"
@@ -219,5 +214,31 @@ if has("gui_macvim")
   let g:ycm_key_list_previous_completion=['<Up>']
 
   autocmd VimEnter * IndentGuidesEnable
+
+  "" Unite stuff
+  let g:unite_source_file_rec_max_cache_files = 0
+  call unite#custom#source('file_mru,file_rec,file_rec/async,grepocate',
+        \ 'max_candidates', 0)
+  
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  " Use the rank sorter for everything
+  call unite#filters#sorter_default#use(['sorter_rank'])
+
+  " Set up some custom ignores
+  call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.git/',
+      \ 'tmp/',
+      \ 'node_modules/',
+      \ 'dist/',
+      \ ], '\|'))
+
+  "" launch Unite with ctrl-P -- standard file searching
+  nnoremap <C-p> :Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
+
+  "" launch Unite with ctrl-B -- lets you pick from your open buffers
+  nnoremap <C-b> :Unite -no-split buffer -start-insert<cr>
+
+  map <leader>f :NERDTreeFind<cr>
 endif
 
